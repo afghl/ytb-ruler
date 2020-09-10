@@ -1,0 +1,28 @@
+{
+  "name": "@afghl/ytb-ruler",
+  "bin": "./index.js",
+  "version": "1.0.0",
+  "description": "a little tool to the length of a youtube playlist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/afghl/ytb-ruler.git"
+  },
+  "keywords": [
+    "youtube",
+    "ytb",
+    "playlist",
+    "length",
+    "video"
+  ],
+  "author": "afghl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afghl/ytb-ruler/issues"
+  },
+  "homepage": "https://github.com/afghl/ytb-ruler#readme",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+}
