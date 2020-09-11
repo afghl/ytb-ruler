@@ -1,8 +1,10 @@
 {
   "name": "@afghl/ytb-ruler",
-  "bin": "./index.js",
+  "bin": {
+    "ytb-ruler": "./index.js"
+  },
   "version": "1.0.0",
-  "description": "a little tool to the length of a youtube playlist",
+  "description": "a little tool to tell the length of a youtube playlist",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,5 +26,7 @@
     "url": "https://github.com/afghl/ytb-ruler/issues"
   },
   "homepage": "https://github.com/afghl/ytb-ruler#readme",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
