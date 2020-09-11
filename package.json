@@ -28,5 +28,9 @@
   "homepage": "https://github.com/afghl/ytb-ruler#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "minimist": "^1.2.5"
   }
 }
