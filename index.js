@@ -6,8 +6,6 @@ const request = require('request');
 const YT_PLAYLIST_FORMAT = /^([\S]+list=)?([\w_-]+)[\S]*$/;
 const PLAYLIST_ITEM_URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&fields=items/contentDetails/videoId,nextPageToken&key=AIzaSyAhMj9pBxRpzUlD8elg-ckIclhY_5ngEBk&playlistId={playlistId}&pageToken={pageToken}';
 
-start()
-
 const getVideoIds = (playlistId) => {
   let videoIds = [];
   let pageToken = ""
@@ -48,5 +46,8 @@ const start = () => {
     console.log("Invalid youtube playlist url.");
   }
 
+  console.log(playlistId);
   const videoIds = getVideoIds(playlistId)
 }
+
+start()
