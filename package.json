@@ -7,7 +7,8 @@
   "description": "a little tool to tell the length of a youtube playlist",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=dev node server.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
+    "express": "^4.17.1",
     "minimist": "^1.2.5",
     "request": "^2.88.2"
   }
