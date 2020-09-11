@@ -3,25 +3,18 @@
 const parseArgs = require('minimist');
 const request = require('request');
 
+const SERVER_URL = "https://ytb-ruler.herokuapp.com/apis/playlist?playlistId={playlistId}"
 const YT_PLAYLIST_FORMAT = /^([\S]+list=)?([\w_-]+)[\S]*$/;
 const PLAYLIST_ITEM_URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&fields=items/contentDetails/videoId,nextPageToken&key=AIzaSyAhMj9pBxRpzUlD8elg-ckIclhY_5ngEBk&playlistId={playlistId}&pageToken={pageToken}';
 
-const getVideoIds = (playlistId) => {
-  let videoIds = [];
-  let pageToken = ""
-  while (true) {
-    const url = PLAYLIST_ITEM_URL.replace("{playlistId}", playlistId).replace("{pageToken}", pageToken);
+const measure = (playlistId) => {
+    const url = SERVER_URL.replace("{playlistId}", playlistId);
 
-    request('http://www.google.com', function (error, response, body) {
+    request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        const data = JSON.parse(body);
-        console.log(data);
+        console.log(body);
       }
     });
-
-
-    break;
-  }
 }
 
 const start = () => {
@@ -47,7 +40,7 @@ const start = () => {
   }
 
   console.log(playlistId);
-  const videoIds = getVideoIds(playlistId)
+  measure(playlistId);
 }
 
 start()
