@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import 'minimist'
 const parseArgs = require('minimist');
 const request = require('request');
 

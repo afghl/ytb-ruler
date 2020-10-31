@@ -11,7 +11,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=dev node server.js"
+    "build": "babel lib -d dist",
+    "start": "npm run build && nodemon dist/index.js",
+    "serve": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -34,11 +36,15 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
     "express": "^4.17.1",
     "minimist": "^1.2.5",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "nodemon": "^2.0.6"
   }
 }
