@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sample Site</title>
+    <title>Youtube Playlist Total Length</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <style>
@@ -22,27 +22,42 @@
 
     <div class="container">
         <div class="jumbotron">
-            <div id="playlist-form">
-                <input placeholder="input playlist id"></input>
-
-                <button>see</button>
-            </div>
-        </div>
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Youtube playlist url</label>
+                <input class="form-control" id="input-url" aria-describedby="emailHelp" placeholder="https://www.youtube.com/playlist?list=ID">
+                <small class="form-text text-muted">Just input a youtube playlist url and submit!</small>
+              </div>
+              <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+            </form>
+        </div>        
     </div>
+
+    <div class="container">
+      <div id="result">
+          
+      </div>
+  </div>
 
     <footer></footer>
 
     <script>
+      var renderResult = function(result) {
+        $("#result").text(result)
+      }
+
       $(function() {
-        var submitBtn = $("#playlist-form button")
-        var input = $("#playlist-form input")
+        var submitBtn = $("#submit-btn")
+        var input = $("#input-url")
         
-        submitBtn.click(function() {
+        submitBtn.click(function(e) {
+          e.preventDefault()
           $.ajax({
             url: '/apis/playlist',
             data: { playlistUrl: input.val() },
             success: function(data, status) {
-              console.log(data);
+              
+              renderResult(data);
             }
           });
         })
