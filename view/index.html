@@ -16,11 +16,10 @@
     <header></header>
 
     <div class="container">
-        <div class="jumbotron">
-            <h1>hi there</h1>
-        </div>
-    </div>
-
+      <div class="jumbotron">
+          <h2>Youtube Playlist Length</h2>
+      </div>
+  </div>
     <div class="container">
         <div class="jumbotron">
             <form>
@@ -35,7 +34,7 @@
     </div>
 
     <div class="container">
-      <div class="card" id="result" style="visibility: hidden;">
+      <div class="card" id="result" style="display: none;">
         
         <div class="card-body">
             
@@ -50,7 +49,7 @@
         if (num == null || num == undefined || num <= 0) {
           return ''
         } else if (num == 1) {
-          return " 1" + unit
+          return " 1 " + unit
         } else {
           return " " + num + " " + unit + "s"
         }
@@ -64,16 +63,23 @@
           formatTimeStr(m.hours(), "hour"),
           formatTimeStr(m.minutes(), "minute"),
           formatTimeStr(m.seconds(), "second"),
-        ].join(",")
+        ].filter(function(s) { return s != ''; }).join(",")
       }
 
       var renderResult = function(result) {
-        $("#result").text(result).show()
         var res = [];
-        res.add("Total videos: " + result.items.length + ".")
-        res.add("It takes you " + formatDuration(result.analysed.total) + "to watch the whole playlist.")
-        res
-        var s = "Total length of playlist";
+        res.push("Total videos: " + result.items.length + ".")
+        res.push("It takes you" + formatDuration(result.analysed.total) + " to watch the whole playlist.")
+        res.push("1.25x speed cost you" + formatDuration(result.analysed.x125) + ".") 
+        res.push("1.5x speed cost you" + formatDuration(result.analysed.x150) + ".")
+        res.push("1.75x speed cost you" + formatDuration(result.analysed.x175) + ".")
+        res.push("2.0x speed cost you" + formatDuration(result.analysed.x200) + ".")
+      
+        var html = res.map(function(centent) {
+          return '<p>' + centent + '</p>';
+        })
+        
+        $("#result").html(html).show()
       }
 
       $(function() {
