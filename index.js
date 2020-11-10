@@ -40,7 +40,6 @@ const start = () => {
     console.log("Invalid youtube playlist url.");
   }
 
-  console.log(playlistId);
   measure(playlistId);
 }
 
